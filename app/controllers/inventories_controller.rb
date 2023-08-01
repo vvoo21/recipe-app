@@ -15,10 +15,6 @@ class InventoriesController < ApplicationController
     @inventory = Inventory.new
   end
 
-  # GET /inventories/1/edit
-  def edit
-  end
-
   # POST /inventories or /inventories.json
   def create
     @inventory = Inventory.new(inventory_params)
