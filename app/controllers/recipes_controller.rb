@@ -1,22 +1,35 @@
 class RecipesController < ApplicationController
+  load_and_authorize_resource
   before_action :set_recipe, only: %i[show edit update destroy]
 
   # GET /recipes or /recipes.json
   def index
-    @recipes = Recipe.all
+    @recipes = current_user.recipes
+  end
+
+  # GET public recipes
+  def public_recipes
+    @recipes = Recipe.order(created_at: :desc).select(&:public)
   end
 
   # GET /recipes/1 or /recipes/1.json
-  def show; end
+  def show
+    @recipe_foods = @recipe.recipe_foods.includes(:food, :recipe)
+  end
 
   # GET /recipes/new
   def new
     @recipe = Recipe.new
   end
 
+  # GET /recipes/1/edit
+  def edit; end
+
   # POST /recipes or /recipes.json
   def create
+    @user = current_user
     @recipe = Recipe.new(recipe_params)
+    @recipe.user = @user
 
     respond_to do |format|
       if @recipe.save
