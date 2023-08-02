@@ -13,6 +13,12 @@
   <body>
     <header>
       <%= render "shared/userslinks" %>
+      <nav>
+        <%= link_to 'Food', foods_path %>
+        <%= link_to 'Recipe', recipe_path %>
+        <%= link_to 'Inventory', inventory_path %>
+        <%= link_to 'Shopping List' %>    
+      </nav>
     </header>
     <main>
       <p class="notice"><%= notice %></p>
