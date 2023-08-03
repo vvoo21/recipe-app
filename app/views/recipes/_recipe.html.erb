@@ -1,27 +1,28 @@
-<div id="<%= dom_id recipe %>">
-  <p>
-    <strong>Name:</strong>
-    <%= recipe.name %>
-  </p>
+<div class="row border border-primary" id="<%= dom_id recipe %>">
+  <div class="col-sm-3">
+    <div class="card border-0">
+        <div class="card-body">
+          <h4 class="card-text"><%= link_to recipe.name, recipe, class: "a-primary" %></h4>
+          <br>
+          <% if can? :destroy, recipe %>
+          <%= link_to 'Remove',
+            recipe_path(recipe), data: {
+                            turbo_method: :delete,
+                            turbo_confirm: "Are you sure?"
+                          }, class: "btn btn-danger" 
+          %>    
+          <% end %>
+      </div>
+    </div>
+  </div>
 
-  <p>
-    <strong>Preparation time:</strong>
-    <%= recipe.preparation_time %>
-  </p>
 
-  <p>
-    <strong>Cooking time:</strong>
-    <%= recipe.cooking_time %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= recipe.description %>
-  </p>
-
-  <p>
-    <strong>Public:</strong>
-    <%= recipe.public %>
-  </p>
+  <div class="col-sm-9">
+    <div class="card border-0">
+      <div class="card-body">
+        <p class="card-text"><strong>Description:</strong> <%= recipe.description %></p>
+      </div>
+    </div>
+  </div>
 
 </div>
