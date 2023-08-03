@@ -130,6 +130,11 @@ To run the project tests, execute the following command:
 - Twitter: [@FelipeHaybar](https://twitter.com/FelipeHaybar)
 - LinkedIn: [FelipeHaybar](https://linkedin.com/in/FelipeHaybar)
 
+👤 **Nabeel Ahmed**
+- GitHub: [@Metaverse-Nabeel](https://github.com/Metaverse-Nabeel)
+- LinkedIn: [@Nabeel129](https://www.linkedin.com/in/nabeel129/)
+- Wellfound(AngelList): [@Nabeel129](https://wellfound.com/u/nabeel-ahmed-62)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🔭 Future Features <a name="future-features"></a>

@@ -1,14 +1,33 @@
-<p style="color: green"><%= notice %></p>
+<div class="container mt-3">   
+  <p style="color: green"><%= notice %></p>
 
-<h1>Foods</h1>
+  <div class="d-flex align-items-center justify-content-between mb-4">
+  <h1>Foods</h1>
 
-<div id="foods">
-  <% @foods.each do |food| %>
-    <%= render food %>
-    <p>
-      <%= link_to "Show this food", food %>
-    </p>
-  <% end %>
+  <%= link_to "Add food", new_food_path, class: "btn btn-primary" %>
+  </div>
+
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Food</th>
+        <th>measurement unit</th>
+        <th>Unit price</th>
+        <th class="text-center">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @foods.each do |food| %>
+        <tr>
+          <td><%= food.name %></td>
+          <td><%= food.measurement_unit %></td>
+          <td><%= "$#{food.price}" %></td>
+          <td class="d-flex justify-content-around">
+            <%= button_to "Delete", food, method: :delete, class: "btn btn-danger btn-sm" %>
+            <%= link_to "See food", food, class: "btn btn-info btn-sm" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
-
-<%= link_to "New food", new_food_path %>

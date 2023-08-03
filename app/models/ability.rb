@@ -18,12 +18,13 @@ class Ability
 
     # Users can add new food
     can :create, Food
+
     return unless user.present?
 
     can :manage, RecipeFood
-    can :manage, Recipe, user: user
-    can :manage, InventoryFood, user: user
-    can :manage, Inventory, user: user
+    can(:manage, Recipe, user:)
+    can(:manage, InventoryFood, user:)
+    can(:manage, Inventory, user:)
     can :manage, Food, user:
   end
 end
