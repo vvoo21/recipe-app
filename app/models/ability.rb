@@ -20,12 +20,12 @@ class Ability
     can :create, Food
 
     # Managers can manage (edit, update, delete) recipes
-    can :manage, Recipe, user: user
+    can(:manage, Recipe, user:)
 
     # Managers can manage (edit, update, delete) inventory foods
-    can :manage, InventoryFood, user: user
+    can(:manage, InventoryFood, user:)
 
     # Managers can manage (edit, update, delete) inventories
-    can :manage, Inventory, user: user
+    can :manage, Inventory, user:
   end
 end
