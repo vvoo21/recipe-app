@@ -1,16 +1,16 @@
 <!-- app/views/shared/_navigation.html.erb -->
 
-<nav class="px-5 py-3">
+<nav class="px-5 py-3 bg-light navbar navbar-expand-lg navbar-light bg-light">
   <ul class= 'd-flex float-end list-unstyled'>
     <li class= 'btn secundary-text'><%= link_to 'Home', root_path, class:'text-decoration-none text-black'%></li>
     <li class= 'btn secundary-text'><%= link_to 'Recipes', recipes_path, class:'text-decoration-none text-black' %></li>
     <li class= 'btn secundary-text'><%= link_to 'Foods', foods_path, class:'text-decoration-none text-black' %></li>
     <li class= 'btn secundary-text'><%= link_to 'Inventories', inventories_path, class:'text-decoration-none text-black' %></li>
   </ul>
-<div class="d-flex gap-2">
+<div class="d-flex gap-1">
   <% if user_signed_in?  %>
-    <%= link_to "Edit profile", edit_user_registration_path, class: 'btn secundary-text' %>
-    <%= button_to "Logout", destroy_user_session_path, method: :delete, class: 'btn secundary-text'  %>
+    <%= link_to "Profile", edit_user_registration_path, class: 'btn btn-primary' %>
+    <%= button_to "Logout", destroy_user_session_path, method: :delete, class: 'btn btn-danger'  %>
   <% else %>
     <%= link_to "Sign up", new_user_registration_path, class: 'btn secundary-text'  %>
     <%= link_to "Login", new_user_session_path, class: 'btn secundary-text' %>
