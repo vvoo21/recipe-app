@@ -18,14 +18,13 @@ class Ability
 
     # Users can add new food
     can :create, Food
+    
+    return unless user.present?
 
-    # Managers can manage (edit, update, delete) recipes
-    can(:manage, Recipe, user:)
-
-    # Managers can manage (edit, update, delete) inventory foods
-    can(:manage, InventoryFood, user:)
-
-    # Managers can manage (edit, update, delete) inventories
-    can :manage, Inventory, user:
+    can :manage, RecipeFood
+    can :manage, Recipe, user: user
+    can :manage, InventoryFood, user: user
+    can :manage, Inventory, user: user
+    can :manage, Food, user:
   end
 end
