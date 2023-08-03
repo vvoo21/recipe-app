@@ -8,12 +8,12 @@
     <div class="col">
       <div>
         <strong>Preparation time:</strong>
-        <%= @recipe.preparation_time %>
+        <%= @recipe.preparation_time.to_s(:time) %>
       </div>
 
       <div>
         <strong>Cooking time:</strong>
-        <%= @recipe.cooking_time %>
+        <%= @recipe.cooking_time.to_s(:time) %>
       </div>
     </div>
     
