@@ -57,8 +57,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'faker'
-  gem 'rspec-rails'
- 
+  gem 'rspec-rails' 
 end
 
 group :development do
@@ -77,7 +76,6 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'webdrivers'
-  gem 'shoulda-matchers'
 end
 
 gem 'devise'

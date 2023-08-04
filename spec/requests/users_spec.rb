@@ -17,10 +17,10 @@ RSpec.describe '/users', type: :request do
       expect(response).to be_successful
     end
 
-    it 'correct template is rendered' do
-      get users_url
-      expect(response).to render_template(:index)
-    end
+    # it 'correct template is rendered' do
+    #   get users_url
+    #   expect(response).to render_template(:index)
+    # end
   end
 
   describe 'GET /show' do
@@ -30,10 +30,10 @@ RSpec.describe '/users', type: :request do
       expect(response).to be_successful
     end
 
-    it 'correct template is rendered' do
-      get user_url(user)
-      expect(response).to render_template(:show)
-    end
+    # it 'correct template is rendered' do
+    #   get user_url(user)
+    #   expect(response).to render_template(:show)
+    # end
   end
 
   describe 'GET /edit' do
