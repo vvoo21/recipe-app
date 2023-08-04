@@ -1,14 +1,16 @@
 class InventoriesController < ApplicationController
+  load_and_authorize_resource
   before_action :set_inventory, only: %i[show edit update destroy]
 
   # GET /inventories or /inventories.json
   def index
-    @inventories = Inventory.all
+    @inventories = current_user.inventories
   end
 
   # GET /inventories/1 or /inventories/1.json
-  def show; end
-
+  def show
+    @inventory_foods = @inventory.inventory_foods.includes(:food, :inventory)
+  end
   # GET /inventories/new
   def new
     @inventory = Inventory.new
@@ -16,7 +18,9 @@ class InventoriesController < ApplicationController
 
   # POST /inventories or /inventories.json
   def create
+    @user = current_user
     @inventory = Inventory.new(inventory_params)
+    @inventory.user = @user
 
     respond_to do |format|
       if @inventory.save
@@ -61,6 +65,6 @@ class InventoriesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def inventory_params
-    params.require(:inventory).permit(:name)
+    params.require(:inventory).permit(:name, :description)
   end
 end

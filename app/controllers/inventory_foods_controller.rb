@@ -1,5 +1,7 @@
 class InventoryFoodsController < ApplicationController
   before_action :set_inventory_food, only: %i[show edit update destroy]
+  before_action :set_foods
+  before_action :set_inventory
 
   # GET /inventory_foods or /inventory_foods.json
   def index
@@ -20,11 +22,11 @@ class InventoryFoodsController < ApplicationController
   # POST /inventory_foods or /inventory_foods.json
   def create
     @inventory_food = InventoryFood.new(inventory_food_params)
-
+    @inventory_food.inventory = @inventory
     respond_to do |format|
       if @inventory_food.save
         format.html do
-          redirect_to inventory_food_url(@inventory_food), notice: 'Inventory food was successfully created.'
+          redirect_to inventory_url(@inventory), notice: 'Inventory food was successfully created.'
         end
         format.json { render :show, status: :created, location: @inventory_food }
       else
@@ -54,7 +56,7 @@ class InventoryFoodsController < ApplicationController
     @inventory_food.destroy
 
     respond_to do |format|
-      format.html { redirect_to inventory_foods_url, notice: 'Inventory food was successfully destroyed.' }
+      format.html { redirect_to inventory_url(@inventory), notice: 'Inventory food was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -66,8 +68,16 @@ class InventoryFoodsController < ApplicationController
     @inventory_food = InventoryFood.find(params[:id])
   end
 
+  def set_foods
+    @foods = Food.all
+  end
+
+  def set_inventory
+    @inventory = Inventory.find(params[:inventory_id])
+  end
+
   # Only allow a list of trusted parameters through.
   def inventory_food_params
-    params.require(:inventory_food).permit(:quantity)
+    params.require(:inventory_food).permit(:quantity, :food_id)
   end
 end
