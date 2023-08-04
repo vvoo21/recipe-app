@@ -11,6 +11,7 @@ class InventoriesController < ApplicationController
   def show
     @inventory_foods = @inventory.inventory_foods.includes(:food, :inventory)
   end
+
   # GET /inventories/new
   def new
     @inventory = Inventory.new
