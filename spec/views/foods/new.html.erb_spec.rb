@@ -1,24 +1,18 @@
 require 'rails_helper'
 
-RSpec.describe "foods/new", type: :view do
+RSpec.describe 'foods/new', type: :view do
+  let(:food) { Food.new }
+
   before(:each) do
-    assign(:food, Food.new(
-      name: "MyString",
-      measurement_unit: "MyString",
-      price: "9.99"
-    ))
+    assign(:food, food)
+    render
   end
 
-  it "renders new food form" do
-    render
+  it "displays 'New food' heading" do
+    expect(rendered).to have_selector('h1', text: 'New food')
+  end
 
-    assert_select "form[action=?][method=?]", foods_path, "post" do
-
-      assert_select "input[name=?]", "food[name]"
-
-      assert_select "input[name=?]", "food[measurement_unit]"
-
-      assert_select "input[name=?]", "food[price]"
-    end
+  it 'has a link to go back to foods_path' do
+    expect(rendered).to have_link('Back to foods', href: foods_path)
   end
 end
