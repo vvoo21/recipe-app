@@ -1,17 +1,33 @@
-<div class="w-25" id="<%= dom_id food %>">
-  <p>
-    <strong>Name:</strong>
-    <%= food.name %>
-  </p>
+<section>
+  <%= form_with(model: food) do |form| %>
+    <% if food.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(food.errors.count, "error") %> prohibited this food from being saved:</h2>
+        <ul>
+          <% food.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-  <p>
-    <strong>Measurement unit:</strong>
-    <%= food.measurement_unit %>
-  </p>
+    <div class='mb-3'>
+      <%= form.label :name, style: "display: block" %>
+      <%= form.text_field :name, class: "form-control"  %>
+    </div>
 
-  <p>
-    <strong>Price:</strong>
-    <%= food.price %>
-  </p>
+    <div class='mb-3'>
+      <%= form.label :measurement_unit, style: "display: block" %>
+      <%= form.text_field :measurement_unit, class: "form-control" %>
+    </div>
+        <div class="mb-3">
+      <%= form.label :price, style: "display: block" %>
+      <%= form.text_field :price, class: "form-control"  %>
+    </div>
 
-</div>
+    <div>
+      <br/>
+      <%= form.submit class: "btn btn-primary"%>
+    </div>
+  <% end %>
+</section>
