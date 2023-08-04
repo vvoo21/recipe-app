@@ -6,6 +6,6 @@ class Food < ApplicationRecord
   belongs_to :user, class_name: 'User'
 
   validates :name, presence: true, length: { in: 2..50 }
-  validates :measurement_unit, presence: true, length: { in: 2..12 }
   validates :price, numericality: { only_integer: false, greater_than_or_equal_to: 0 }
+  validates :measurement_unit, presence: true, length: { in: 2..12 }
 end
