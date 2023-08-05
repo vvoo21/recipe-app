@@ -62,7 +62,7 @@ development:
 test:
   <<: *default
   database: recipe_app_test
-  password: 2128
+  password: Metaverse@44
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -86,4 +86,4 @@ test:
 #
 production:
   <<: *default
-  url: <%= postgresql://postgres:Metaverse@44@host:5432/recipe_app_production %>
+  url: <%= ENV["postgres://username:password@host:5432/recipe_app"]%>
