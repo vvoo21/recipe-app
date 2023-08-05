@@ -4,7 +4,7 @@ class Recipe < ApplicationRecord
 
   # Validations
   validates :name, :preparation_time, :description, presence: true
-  
+
   # Methods
   def calc_price
     price = 0

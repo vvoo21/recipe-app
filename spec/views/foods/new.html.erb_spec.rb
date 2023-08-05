@@ -9,7 +9,7 @@ RSpec.describe 'foods/new', type: :view do
   end
 
   it "displays 'New food' heading" do
-    expect(rendered).to have_selector('h1', text: 'New food')
+    expect(rendered).to have_selector('h1', text: 'NEW FOOD')
   end
 
   it 'has a link to go back to foods_path' do
