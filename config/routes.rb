@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'shopping_list/index'
   devise_for :users
   resources :inventory_foods
   resources :inventories
@@ -23,6 +24,6 @@ Rails.application.routes.draw do
   end
   get '/public_recipes', to: 'recipes#public_recipes'
 
-  resources :general_shopping_list, only: [:index]
+  resources :shopping_list, only: [:index]
   
 end

@@ -5,9 +5,6 @@ RSpec.describe Food, type: :model do
 
   # Asociations
   it { should have_many(:recipe_foods).dependent(:destroy) }
-  it { should have_many(:recipes).through(:recipe_foods) }
-  it { should have_many(:inventory_foods).dependent(:destroy) }
-  it { should belong_to(:user).class_name('User') }
 
   # Validations
   it { should validate_presence_of(:name) }

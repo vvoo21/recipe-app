@@ -1,9 +1,10 @@
 class Recipe < ApplicationRecord
   belongs_to :user
   has_many :recipe_foods, dependent: :destroy
-  has_many :foods, through: :recipe_foods
+
   # Validations
   validates :name, :preparation_time, :description, presence: true
+
   # Methods
   def calc_price
     price = 0
