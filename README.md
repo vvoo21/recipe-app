@@ -23,7 +23,7 @@
 
 # 📖 Recipe App <a name="about-project"></a>
 
-**Recipe app** is a ...
+**Recipe app** keeps track of all your recipes, ingredients, and inventory. It will allow you to save ingredients, keep track of what you have, create recipes, and generate a shopping list based on what you have and what you are missing from a recipe. Also, since sharing recipes is an important part of cooking the app should allow you to make them public so anyone can access them.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -50,11 +50,16 @@
 
 ### Key Features <a name="key-features"></a>
 
-- Creating a data model.
+- Login page.
+- Registration page.
+- Food list (with all CRUD implementation, except for 'update').
+- Recipes list (with all CRUD implementation, except for 'update').
+- General shopping list view (all missing food for all your recipes and total price).
+- List of all public recipes from other users with their names and total prices.
 
 ## Entity Relationship Diagram <a name="entity-relationship-diagram"></a>
 
-![](./)
+![](./recipe_erd.png)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -139,7 +144,7 @@ To run the project tests, execute the following command:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- Add User profiles
+- Pagination or infinite scrolling for the lists
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
