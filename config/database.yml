@@ -18,6 +18,7 @@ default: &default
   adapter: postgresql
   encoding: unicode
   username: postgres  
+  password: Metaverse@44
 
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
@@ -26,7 +27,7 @@ default: &default
 development:
   <<: *default
   database: recipe_app_development
-  password: 2128
+  password: Metaverse@44
  
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -85,4 +86,4 @@ test:
 #
 production:
   <<: *default
-  url: <%= ENV['DATABASE_URL'] %>
+  url: <%= postgresql://postgres:Metaverse@44@host:5432/recipe_app_production %>
