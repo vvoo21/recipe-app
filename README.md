@@ -1,4 +1,4 @@
-# Blog App ![Rails](https://rubyonrails.org/assets/images/logo.svg)
+# Recipe App ![Rails](https://rubyonrails.org/assets/images/logo.svg)
 
 # 📗 Table of Contents
 
